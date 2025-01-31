@@ -46,8 +46,12 @@ def get_segments(audio,file_format,bias,model_size="medium"):
         slice = segment[timestamp.start:timestamp.end]
         slice.export(f"./segments/{timestamp.word} {timestamp.confidence}.{file_format}", format=f"{file_format}")
 
-def convert_to_wav():
-    pass
+def convert_to_wav(input_file):
+        audio = AudioSegment.from_file(input_file)
+        audio.export(output_file, format = "wav")
+        return output_file
+        
+    
 def diarize(audio):
     pass
 def get_filetype(name):
